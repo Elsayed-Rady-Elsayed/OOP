@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+int temp = 0;
+class Complex {
+private:
+	float real;
+	float imag;
+public:
+	void setReal(float r){
+		real = r;
+	}
+	void setImag(float i) {
+		imag = i;
+	}
+	float getImag(){
+		if (imag != NULL) {
+			return imag;
+		}
+		else {
+			throw "not set value";
+		}
+	}
+	float getReal() {
+		if (real != NULL) {
+			return real;
+		}
+		else {
+			throw "not set value";
+		}
+	}
+	Complex add(Complex sec) {
+		Complex temp;
+		temp.real = real + sec.real;
+		temp.imag = imag + sec.imag;
+		return temp;
+	}
+	Complex sub(Complex sec) {
+		Complex temp;
+		temp.real = real - sec.real;
+		temp.imag = imag - sec.imag;
+		return temp;
+	}
+	void print() {
+		if (real != NULL && imag != NULL) {
+			cout << real << " " << imag << endl;
+		}
+	}
+};
+
+int main() {
+	Complex first, second, result;
+	first.setImag(10);
+	first.setReal(10);
+	first.print();
+	second.setImag(5);
+	second.setReal(5);
+	second.print();
+	result = first.add(second);
+	result.print();
+	result = first.sub(second);
+	result.print();
+	return 0;
+}
